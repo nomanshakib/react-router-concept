@@ -12,11 +12,13 @@ import Photos from './components/Photos/Photos.jsx';
 import PhotoDetails from './components/PhotoDetails/PhotoDetails.jsx';
 import Users from './components/Users/Users.jsx';
 import UserDetails from './components/UserDetails/UserDetails.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 const router = new createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/about",

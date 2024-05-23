@@ -1,9 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 
 const UserDetails = () => {
     const user = useLoaderData();
-    const {phone, company, address} = user;
+    const navigate = useNavigate();
+    const { phone, company, address } = user;
+    
+    const goBackHandle = () => {
+        navigate(-1);
+    }
     return (
       <div>
         <h1 className="underline">User Details : </h1>
@@ -15,6 +20,7 @@ const UserDetails = () => {
           <ul>City : {address.city}</ul>
           <ul>Zip Code : {address.zipcode}</ul>
         </p>
+        <button onClick={goBackHandle} className="mt-3 border-2 rounded-md p-1 border-cyan-500">Go Back to Previous Page</button>
       </div>
     );
 };

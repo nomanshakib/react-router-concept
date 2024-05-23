@@ -9,6 +9,9 @@ import Home from './components/Home/Home.jsx';
 import Contact from './components/Home/Contact/Contact.jsx';
 import CommentDetails from './components/CommentDetails/CommentDetails.jsx';
 import Photos from './components/Photos/Photos.jsx';
+import PhotoDetails from './components/PhotoDetails/PhotoDetails.jsx';
+import Users from './components/Users/Users.jsx';
+import UserDetails from './components/UserDetails/UserDetails.jsx';
 
 const router = new createBrowserRouter([
   {
@@ -41,6 +44,21 @@ const router = new createBrowserRouter([
         loader: () => fetch("https://jsonplaceholder.typicode.com/photos"),
         element: <Photos></Photos>,
       },
+      {
+        path: "/photo/:photoId",
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/photos/${params.photoId}`),
+        element: <PhotoDetails></PhotoDetails>,
+      },
+      {
+        path: '/users',
+        loader: () => fetch("https://jsonplaceholder.typicode.com/users"),
+        element: <Users></Users>
+      },
+      {
+        path: '/user/:userId',
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`),
+        element: <UserDetails></UserDetails>
+      }
     ],
   },
 ]);

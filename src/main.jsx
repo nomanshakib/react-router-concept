@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Comments from './components/Comments/Comments.jsx';
 import About from './components/About/About.jsx';
 import Home from './components/Home/Home.jsx';
-import Contact from './components/Home/Contact/Contact.jsx';
+import Contact from './components/Contact/Contact.jsx';
 import CommentDetails from './components/CommentDetails/CommentDetails.jsx';
 import Photos from './components/Photos/Photos.jsx';
 import PhotoDetails from './components/PhotoDetails/PhotoDetails.jsx';
@@ -14,7 +14,7 @@ import Users from './components/Users/Users.jsx';
 import UserDetails from './components/UserDetails/UserDetails.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
-const router = new createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,

@@ -8,19 +8,20 @@ import About from './components/About/About.jsx';
 import Home from './components/Home/Home.jsx';
 import Contact from './components/Home/Contact/Contact.jsx';
 import CommentDetails from './components/CommentDetails/CommentDetails.jsx';
+import Photos from './components/Photos/Photos.jsx';
 
 const router = new createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home></Home>,
     children: [
       {
-        path: '/about',
-        element: <About></About>
+        path: "/about",
+        element: <About></About>,
       },
       {
-        path: '/contact',
-        element: <Contact></Contact>
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
         path: "/comments",
@@ -29,8 +30,16 @@ const router = new createBrowserRouter([
       },
       {
         path: "/comment/:commentId",
-        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/comments/${params.commentId}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://jsonplaceholder.typicode.com/comments/${params.commentId}`
+          ),
         element: <CommentDetails></CommentDetails>,
+      },
+      {
+        path: "/photos",
+        loader: () => fetch("https://jsonplaceholder.typicode.com/photos"),
+        element: <Photos></Photos>,
       },
     ],
   },
